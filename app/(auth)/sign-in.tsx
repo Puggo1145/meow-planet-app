@@ -4,6 +4,7 @@ import { useState } from "react";
 // components
 import FormField from "@/components/UI/FormField";
 import CusButton from "@/components/UI/CusButton";
+import PageHeader from "@/components/UI/PageHeader";
 // assets
 import images from "@/constants/images";
 
@@ -27,14 +28,16 @@ const SignIn: React.FC = () => {
 
   return (
     <SafeAreaView className="bg-white h-full">
+
       {/* 头图 */}
       <View className="relative w-full h-[180px] overflow-hidden">
+        <PageHeader />
         <Image source={images.signInImg} className="absolute -bottom-[100px] w-full h-[300px]" />
       </View>
 
       <View className="w-full px-4 min-h-[85vh]">
         <View>
-          <Text className="text-[32px] font-hbold ml-2 mt-8">
+          <Text className="text-3xl font-hbold ml-2 mt-8">
             登录猫猫星球
           </Text>
         </View>

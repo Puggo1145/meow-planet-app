@@ -41,7 +41,8 @@ const FormField: React.FC<FormFieldProps> = ({
                     {label}
                 </Text>
             )}
-            <View className="w-full h-16 px-6 border-2 bg-secondary border-transparent border-solid rounded-full focus:border-primary
+            <View className="w-full h-16 px-6 border-2 bg-secondary border-transparent border-solid rounded-full 
+            focus:border-primary focus:bg-[#fefaf6]
             flex-row items-center justify-between">
                 {icon && <Image source={icon} className="w-6 h-6" />}
                 <TextInput

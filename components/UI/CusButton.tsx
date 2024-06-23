@@ -5,7 +5,7 @@ import icons from "@/constants/icons";
 interface CusButtonProps {
   children: React.ReactNode;
   containerStyle?: string;
-  variant?: "default" | "secondary" | "outline";
+  variant?: "default" | "secondary" | "outline" | "muted";
   onPress?: () => void;
   isLoading?: boolean;
   icon?: ImageURISource
@@ -32,13 +32,17 @@ const CusButton = ({
       bg: "border-2 border-solid border-secondary",
       text: "text-secondary-foreground",
     },
+    muted: {
+      bg: "bg-gray-200",
+      text: "text-gray-500",
+    }
   };
 
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.8}
-      disabled={isLoading}
+      disabled={isLoading || !onPress}
       className={`
       min-h-[62px] px-8 justify-center items-center rounded-full flex-row
       ${containerStyle ?? ""} ${variant ? variants[variant].bg : variants.default.bg} ${isLoading ? "opacity-50" : ""}

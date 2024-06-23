@@ -3,6 +3,9 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        "3xl": "32px",
+      },
       colors: {
         background: "#FEFAF5",
         foreground: "#333333",
