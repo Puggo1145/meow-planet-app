@@ -1,37 +1,121 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { View, Text, Image, ImageProps } from "react-native";
+import { Tabs, Redirect } from "expo-router";
+// icons
+import icons from "@/constants/icons";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabsLayout: React.FC = () => {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+    <>
+      <Tabs
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarInactiveTintColor: "#D9D9D9",
+          tabBarActiveTintColor: "#F27F08",
+          tabBarStyle: {
+            height: 80,
+            borderRadius: 100,
+            margin: 16,
+            marginBottom: 24,
+            paddingTop: 30,
+            shadowColor: "#ccc",
+            shadowOffset: {
+              width: 0,
+              height: 0,
+            },
+            shadowOpacity: 0.1,
+            shadowRadius: 8,
+          }
         }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+      >
+        <Tabs.Screen
+          name="cats-board"
+          options={{
+            title: "看猫猫",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.catBoard}
+                color={color}
+                name="看猫猫"
+                focused={focused}
+              />
+            )
+          }}
+        />
+        <Tabs.Screen
+          name="help-cat"
+          options={{
+            title: "帮猫猫",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.helpCat}
+                color={color}
+                name="帮猫猫"
+                focused={focused}
+              />
+            )
+          }}
+        />
+        <Tabs.Screen
+          name="shop"
+          options={{
+            title: "猫猫文创",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.shop}
+                color={color}
+                name="猫猫文创"
+                focused={focused}
+              />
+            )
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            title: "我",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.profile}
+                color={color}
+                name="我"
+                focused={focused}
+              />
+            )
+          }}
+        />
+      </Tabs>
+    </>
   );
+};
+
+export default TabsLayout;
+
+const TabIcon = ({
+  icon,
+  color,
+  name,
+  focused,
+}: {
+  icon: ImageProps["source"],
+  color: string,
+  name: string,
+  focused: boolean,
+}) => {
+  return (
+    <View className="flex flex-col items-center gap-1">
+      <Image
+        source={icon}
+        resizeMode="contain"
+        className="w-8 h-8"
+        tintColor={color}
+      />
+      <Text className={`${focused ? 'font-semibold text-primary' : 'font-bold text-[#D9D9D9]'} text-[10px]`}>
+        {name}
+      </Text>
+    </View>
+  )
 }
