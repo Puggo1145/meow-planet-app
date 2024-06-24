@@ -2,10 +2,11 @@ import { ScrollView, View, Text, Image, TouchableOpacity } from "react-native";
 // assets
 import {
     HeartIcon,
-    CakeIcon,
-    StarIcon,
+    MessageCircleMoreIcon,
+    FishIcon,
     PawPrintIcon,
-    MapPinIcon
+    MapPinIcon,
+    PlusIcon
 } from "lucide-react-native";
 import PiPi from "@/assets/images/pipi.png";
 import mockPiPiImg from "@/assets/images/mock-pipi-img.jpg";
@@ -36,42 +37,62 @@ const TrendingCats: React.FC = () => {
                         ))}
                     </ScrollView>
                 </View>
-                <View className="w-full mt-6 space-y-4 px-4">
+                <View className="w-full mt-6 space-y-6">
                     {Array.from({ length: 6 }).map((_, index) => (
                         <View
                             key={index}
-                            className="w-full h-[400px] rounded-2xl space-y-4 bg-white border-2 border-[#e9e9e9] p-2"
+                            className="px-4 w-full space-y-4 bg-white pb-4"
                         >
+                            {/* card header */}
+                            <View className="flex-row items-center justify-between pr-2">
+                                <View className="flex-row space-x-2">
+                                    <Image source={PiPi} className="w-9 h-9 rounded-full" />
+                                    <View>
+                                        <Text className="text-md font-hblack">屁屁</Text>
+                                        <Text className="text-xs font-hregular text-gray-400">屁屁是屁屁</Text>
+                                    </View>
+                                </View>
+                                <TouchableOpacity
+                                    className="px-4 py-2 rounded-full bg-secondary flex-row items-center"
+                                    activeOpacity={0.8}
+                                >
+                                    <PlusIcon size={16} className="text-foreground mr-1" />
+                                    <Text className="font-bold text-secondary-foreground">
+                                        关注
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
                             {/* card 图片 */}
-                            <View className="w-full h-[240px] bg-secondary rounded-xl overflow-hidden shadow-md">
+                            <View className="w-full h-[240px] bg-secondary rounded-2xl overflow-hidden">
                                 <Image source={mockPiPiImg} className="w-full h-full" />
                             </View>
+
                             {/* card 信息 */}
                             <View className="w-full px-2 space-y-3">
                                 <View className="flex-row items-center justify-between">
-                                    <Text className="text-xl font-hblack">屁屁</Text>
                                     <View className="flex-row items-center space-x-4">
                                         <TouchableOpacity className="flex-row items-center space-x-1">
                                             <HeartIcon size={24} className="text-foreground" />
-                                            <Text className="text-xs text-foreground font-bold">997</Text>
+                                            <Text className="text-xs text-foreground font-bold">999+</Text>
                                         </TouchableOpacity>
                                         <TouchableOpacity className="flex-row items-center space-x-1">
-                                            <StarIcon size={24} className="text-foreground" />
+                                            <MessageCircleMoreIcon size={24} className="text-foreground" />
                                             <Text className="text-xs text-foreground font-bold">999+</Text>
                                         </TouchableOpacity>
                                     </View>
+                                    <TouchableOpacity className="flex-row items-center space-x-1 bg-primary px-4 py-2 rounded-full">
+                                        <FishIcon size={20} className="text-white" />
+                                        <Text className="text-xs text-white font-bold">367</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View className="space-y-2">
                                     <View className="flex-row items-center space-x-2">
-                                        <CakeIcon size={20} className="text-gray-400" />
-                                        <Text className="text-sm text-foreground">2021-1-2</Text>
-                                    </View>
-                                    <View className="flex-row items-center space-x-2">
-                                        <PawPrintIcon size={20} className="text-gray-400" />
+                                        <PawPrintIcon size={20} className="text-gray-600" />
                                         <Text className="text-sm text-foreground">奶牛</Text>
                                     </View>
                                     <View className="flex-row items-center space-x-2">
-                                        <MapPinIcon size={20} className="text-gray-400" />
+                                        <MapPinIcon size={20} className="text-gray-600" />
                                         <Text className="text-sm text-foreground">图北楼</Text>
                                     </View>
                                 </View>
