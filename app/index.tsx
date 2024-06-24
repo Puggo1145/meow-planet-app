@@ -14,6 +14,10 @@ import icons from "@/constants/icons";
 import images from "@/constants/images";
 
 const Index: React.FC = () => {
+  const skipSignIn = () => {
+    router.replace("/cats-board");
+  }
+
   return (
     <SafeAreaView className="bg-white h-full">
       <View className="w-full h-full items-center justify-between px-4">
@@ -38,9 +42,15 @@ const Index: React.FC = () => {
             variant="secondary"
             containerStyle="w-full"
             onPress={() => router.push("/sign-in")}
-            // icon={icons.wechat}
           >
             登录
+          </CusButton>
+          <CusButton
+            variant="ghost"
+            textStyles="text-sm text-blue-600"
+            onPress={skipSignIn}
+          >
+            先逛逛
           </CusButton>
         </View>
       </View>

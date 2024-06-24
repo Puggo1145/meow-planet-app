@@ -1,5 +1,5 @@
 import { View, Text, Image, ImageProps } from "react-native";
-import { Tabs, Redirect } from "expo-router";
+import { Tabs } from "expo-router";
 // icons
 import icons from "@/constants/icons";
 
@@ -12,19 +12,10 @@ const TabsLayout: React.FC = () => {
           tabBarInactiveTintColor: "#D9D9D9",
           tabBarActiveTintColor: "#F27F08",
           tabBarStyle: {
-            height: 80,
-            borderRadius: 100,
-            margin: 16,
-            marginBottom: 24,
-            paddingTop: 30,
-            shadowColor: "#ccc",
-            shadowOffset: {
-              width: 0,
-              height: 0,
-            },
-            shadowOpacity: 0.1,
-            shadowRadius: 8,
-          }
+            height: 92,
+            paddingTop: 12,
+            borderTopColor: "transparent",
+          },
         }}
       >
         <Tabs.Screen

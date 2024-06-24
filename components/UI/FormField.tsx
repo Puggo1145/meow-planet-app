@@ -19,6 +19,7 @@ interface FormFieldProps {
     placeholder?: string;
     keyboardType?: KeyboardType;
     fieldStyle?: string;
+    containerStyle?: string;
     icon?: ImageURISource;
 }
 
@@ -30,6 +31,7 @@ const FormField: React.FC<FormFieldProps> = ({
     placeholder = "",
     keyboardType,
     fieldStyle = "",
+    containerStyle = "",
     icon,
 }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -41,12 +43,12 @@ const FormField: React.FC<FormFieldProps> = ({
                     {label}
                 </Text>
             )}
-            <View className="w-full h-16 px-6 border-2 bg-secondary border-transparent border-solid rounded-full 
+            <View className={`w-full h-16 px-4 border-2 bg-secondary border-transparent border-solid rounded-full 
             focus:border-primary focus:bg-[#fefaf6]
-            flex-row items-center justify-between">
-                {icon && <Image source={icon} className="w-6 h-6" />}
+            flex-row items-center justify-between ${containerStyle}`}>
+                {icon && <Image source={icon} className="w-4 h-4" />}
                 <TextInput
-                    className="flex-1 text-foreground font-bold "
+                    className="ml-2 flex-1 text-foreground font-bold "
                     value={value}
                     placeholder={placeholder}
                     placeholderTextColor={"#5d5e62"}
