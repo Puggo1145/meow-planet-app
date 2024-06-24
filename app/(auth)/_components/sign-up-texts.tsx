@@ -10,7 +10,7 @@ const SignUpTexts: React.FC<SignUpTextsProps> = ({
     desc
 }) => {
     return (
-        <View>
+        <View className="mr-8">
             <Text className="text-3xl font-hblack tracking-widest">
                 {heading}
             </Text>

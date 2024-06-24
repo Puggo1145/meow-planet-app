@@ -27,7 +27,10 @@ const CreateAuthInfo: React.FC = () => {
           placeholder="密码（8-20 位数字和大小写字母）"
           fieldStyle="mt-4"
         />
-        <CusButton containerStyle="mt-8">
+        <CusButton 
+          containerStyle="mt-8"
+          variant="muted"
+        >
           下一步
         </CusButton>
       </View>
