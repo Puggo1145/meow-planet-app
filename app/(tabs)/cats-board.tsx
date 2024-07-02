@@ -53,7 +53,7 @@ const CatsBoard: React.FC = () => {
         </View>
         <PagerView
           ref={pagerViewRef}
-          className="h-full mt-3"
+          className="flex-1 mt-3"
           pageMargin={16}
           onPageScroll={getCurrentPageIndex}
         >

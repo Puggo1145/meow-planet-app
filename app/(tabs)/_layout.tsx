@@ -12,7 +12,6 @@ const TabsLayout: React.FC = () => {
           tabBarInactiveTintColor: "#D9D9D9",
           tabBarActiveTintColor: "#F27F08",
           tabBarStyle: {
-            height: 92,
             paddingTop: 12,
             borderTopColor: "transparent",
           },
@@ -21,13 +20,13 @@ const TabsLayout: React.FC = () => {
         <Tabs.Screen
           name="cats-board"
           options={{
-            title: "图鉴",
+            title: "图集",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.catBoard}
                 color={color}
-                name="图鉴"
+                name="图集"
                 focused={focused}
               />
             )
@@ -36,13 +35,13 @@ const TabsLayout: React.FC = () => {
         <Tabs.Screen
           name="help-cat"
           options={{
-            title: "帮猫猫",
+            title: "救助",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.helpCat}
                 color={color}
-                name="帮猫猫"
+                name="救助"
                 focused={focused}
               />
             )
@@ -66,13 +65,13 @@ const TabsLayout: React.FC = () => {
         <Tabs.Screen
           name="profile"
           options={{
-            title: "我",
+            title: "我的",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.profile}
                 color={color}
-                name="我"
+                name="我的"
                 focused={focused}
               />
             )

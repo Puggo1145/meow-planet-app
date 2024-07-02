@@ -11,6 +11,7 @@ import map from "@/assets/icons/map.png";
 import mapActive from "@/assets/icons/map-active.png";
 import wechat from "@/assets/icons/wechat.png";
 import search from "@/assets/icons/search.png";
+import catFood from "@/assets/icons/cat-food.png";
 // types
 import { ImageURISource } from "react-native";
 
@@ -28,6 +29,7 @@ const icons: Record<string, any | ImageURISource> = {
     mapActive,
     wechat,
     search,
+    catFood,
 };
 
 export default icons;
