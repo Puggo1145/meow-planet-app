@@ -1,14 +1,14 @@
 import React from "react";
 import {
   SafeAreaView,
-  ScrollView,
   View,
   Image,
-  Text,
 } from "react-native";
 import { router } from "expo-router";
 // components
 import CusButton from "@/components/UI/CusButton";
+import { Button } from "@/components/UI/button";
+import { Text } from "@/components/UI/text";
 // assets
 import icons from "@/constants/icons";
 import images from "@/constants/images";
@@ -28,30 +28,34 @@ const Index: React.FC = () => {
           />
         </View>
         <View className="w-full pl-4">
-          <Text className="text-4xl font-bold font-hbold">在这里</Text>
-          <Text className="text-4xl font-bold font-hbold text-primary">发现更多猫猫</Text>
+          <Text className="text-4xl font-hbold">在这里</Text>
+          <Text className="text-4xl font-hbold text-primary">发现更多猫猫</Text>
         </View>
-        <View className="w-full items-center mb-4">
-          <CusButton
-            containerStyle="w-full mb-4"
+        <View className="w-full items-center mb-8 gap-y-4">
+          <Button
+            className="w-full"
+            size="lg"
             onPress={() => router.push("/sign-up")}
           >
-            创建账号
-          </CusButton>
-          <CusButton
+            <Text className="text-lg">创建账号</Text>
+          </Button>
+          <Button
             variant="secondary"
-            containerStyle="w-full"
+            size="lg"
+            className="w-full"
             onPress={() => router.push("/sign-in")}
           >
-            登录
-          </CusButton>
-          <CusButton
+            <Text>登录</Text>
+          </Button>
+          <Button
             variant="ghost"
-            textStyles="text-sm text-blue-600"
+            size="sm"
             onPress={skipSignIn}
           >
-            先逛逛
-          </CusButton>
+            <Text className="text-blue-600 font-bold">
+              先逛逛
+            </Text>
+          </Button>
         </View>
       </View>
       <Image source={images.catBg} className="-z-10 bottom-0 absolute w-full" />

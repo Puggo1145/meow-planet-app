@@ -1,17 +1,17 @@
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { useState } from "react";
 // components
 import FormField from "../UI/FormField";
 // assets
-import { BellIcon } from "lucide-react-native";
+import {BellIcon} from "@/lib/icons/BellIcon";
 import icons from "@/constants/icons";
 
 const HomeHeader: React.FC = () => {
     const [query, setQuery] = useState("");
-    
+
     return (
         <View className="h-[72px] flex-row justify-between items-center pl-4 pr-6">
-            <FormField 
+            <FormField
                 value={query}
                 onChange={setQuery}
                 placeholder="搜索猫猫"

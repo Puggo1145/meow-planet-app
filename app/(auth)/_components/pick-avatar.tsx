@@ -4,7 +4,7 @@ import SignUpTexts from "./sign-up-texts";
 import CusButton from "@/components/UI/CusButton";
 // assets
 import PiPi from "@/assets/images/pipi.png";
-import { PlusIcon } from "lucide-react-native";
+import { PlusIcon } from "@/lib/icons/PlusIcon";
 
 const PickAvatar: React.FC = () => {
   return (

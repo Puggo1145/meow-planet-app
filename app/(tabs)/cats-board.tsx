@@ -33,7 +33,7 @@ const CatsBoard: React.FC = () => {
       <HomeHeader />
       <View className="flex-1">
         {/* 页面 tab */}
-        <View className="h-[36px] flex-row items-center px-4">
+        <View className="h-[42px] flex-row items-center px-4">
           {pages.map((page, index) => (
             <TouchableOpacity
               key={page.title}
@@ -42,8 +42,8 @@ const CatsBoard: React.FC = () => {
             >
               <Text
                 className={`
-                text-2xl font-hregular mr-3
-                ${currentPage === index ? "font-hblack text-primary" : "text-[#999]"}
+                text-2xl font-bold mr-3
+                ${currentPage === index ? "font-hbold text-primary" : "text-[#999]"}
                 `}
               >
                 {page.title}
@@ -52,8 +52,8 @@ const CatsBoard: React.FC = () => {
           ))}
         </View>
         <PagerView
+          style={{ flex: 1, width: "100%", marginTop: 12 }}
           ref={pagerViewRef}
-          className="flex-1 mt-3"
           pageMargin={16}
           onPageScroll={getCurrentPageIndex}
         >

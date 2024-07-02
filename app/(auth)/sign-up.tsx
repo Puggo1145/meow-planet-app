@@ -12,7 +12,7 @@ const SignUp: React.FC = () => {
       <View className="w-full h-full">
         <PageHeader holdPlace />
         <PagerView
-          className="mt-4 w-full flex-1"
+          style={{ flex: 1 }}
         >
           <GetEmailorPhone key="1" />
           <CreateAuthInfo key="2" />

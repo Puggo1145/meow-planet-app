@@ -14,7 +14,6 @@ const TrendingCats: React.FC = () => {
                     猫猫人气榜
                 </Text>
                 <ScrollView
-                    className="flex-row gap-x-3"
                     horizontal
                     showsHorizontalScrollIndicator={false}
                 >

@@ -37,15 +37,16 @@ const FormField: React.FC<FormFieldProps> = ({
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <View className={`space-y-2 ${fieldStyle}`}>
+        <View className={`${fieldStyle}`}>
             {label && (
                 <Text className="ml-4 text-sm text-[#616367] font-medium">
                     {label}
                 </Text>
             )}
-            <View className={`w-full h-16 px-4 border-2 bg-secondary border-transparent border-solid rounded-full 
-            focus:border-primary focus:bg-[#fefaf6]
-            flex-row items-center justify-between ${containerStyle}`}>
+            <View 
+                className={`mt-2 w-full h-16 px-4 bg-secondary rounded-full flex-row items-center justify-between 
+                ${containerStyle}`}
+            >
                 {icon && <Image source={icon} className="w-4 h-4" />}
                 <TextInput
                     className="ml-2 flex-1 text-foreground font-bold "

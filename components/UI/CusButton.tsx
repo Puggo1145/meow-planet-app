@@ -14,11 +14,11 @@ interface CusButtonProps {
 
 const CusButton = ({
   children,
-  containerStyle,
-  textStyles,
+  containerStyle = "",
+  textStyles = "",
   onPress,
-  isLoading,
-  variant,
+  isLoading = false,
+  variant = "default",
   icon
 }: CusButtonProps) => {
   const variants = {
@@ -51,7 +51,9 @@ const CusButton = ({
       disabled={isLoading || !onPress}
       className={`
       min-h-[62px] px-8 justify-center items-center rounded-full flex-row
-      ${containerStyle ?? ""} ${variant ? variants[variant].bg : variants.default.bg} ${isLoading ? "opacity-50" : ""}
+      ${variant ? variants[variant].bg : variants.default.bg} 
+      ${isLoading ? "opacity-50" : ""}
+      ${containerStyle} 
       `}
     >
       {icon && (
@@ -61,8 +63,9 @@ const CusButton = ({
         />
       )}
       <Text className={`
-        ml-2 text-lg font-bold ${variant ? variants[variant].text : variants.default.text}
-        ${textStyles ?? ""}
+        ml-2 text-lg font-bold 
+        ${variant ? variants[variant].text : variants.default.text}
+        ${textStyles}
       `}>
         {children}
       </Text>
