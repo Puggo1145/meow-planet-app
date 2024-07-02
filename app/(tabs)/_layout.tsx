@@ -21,13 +21,13 @@ const TabsLayout: React.FC = () => {
         <Tabs.Screen
           name="cats-board"
           options={{
-            title: "看猫猫",
+            title: "图鉴",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.catBoard}
                 color={color}
-                name="看猫猫"
+                name="图鉴"
                 focused={focused}
               />
             )
