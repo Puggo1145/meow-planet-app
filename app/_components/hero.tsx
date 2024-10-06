@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
                 猫猫星球
             </Text>
             <Text className="mt-2 text-sm text-gray-400">
-                发现猫咪、关爱领养，让美好发生
+                让美好发生
             </Text>
         </View>
     );

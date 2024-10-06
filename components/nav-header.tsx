@@ -9,7 +9,7 @@ import { ChevronLeft } from "lucide-react-native";
 
 const NavHeader = () => {
     return (
-        <View className="w-full h-[60px]">
+        <View className="w-full h-[60px] pl-4">
             <Button
                 variant="secondary"
                 className="rounded-full w-12 h-12"
