@@ -33,9 +33,9 @@ const Input = ({
     return (
         <View
             className={cn(
-                "flex-row h-[60px] w-full items-center justify-between rounded-full border bg-background px-4 disabled:opacity-50",
+                "flex-row h-[60px] w-full items-center justify-between rounded-full bg-background px-4 disabled:opacity-50 border",
                 {
-                    "border-input bg-background": !isFocused,
+                    "border-secondary bg-secondary": !isFocused,
                     "border-primary bg-primary/5": isFocused,
                 },
                 className

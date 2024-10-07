@@ -9,6 +9,7 @@ const HomeActions = () => {
       <Button
         variant="secondary"
         className="flex-1 rounded-full"
+        onPress={() => router.push("/(auth)/sign-in")}
       >
         <Text className="text-md font-bold text-secondary-foreground">
           登录
