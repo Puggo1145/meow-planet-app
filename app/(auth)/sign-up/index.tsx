@@ -16,6 +16,7 @@ const SignUpPage: React.FC = () => {
         />
         <Input
           placeholder="密码"
+          asPassword
         />
         <Button>
           <Text className="text-white text-md font-bold">

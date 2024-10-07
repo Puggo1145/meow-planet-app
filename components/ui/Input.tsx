@@ -1,6 +1,10 @@
 import { useState } from "react";
 // components
-import { TextInput } from "react-native";
+import { TextInput, View } from "react-native";
+// ui
+import Button from "./Button";
+// icons
+import { EyeIcon, EyeOffIcon } from "lucide-react-native";
 // libs
 import { cn } from "@/lib/tw-merge";
 // types
@@ -12,29 +16,51 @@ export interface IInputProps extends ComponentProps<typeof TextInput> {
     asPassword?: boolean
 }
 
-const Input = ({ 
-    children, 
-    className, 
-    asPassword=false, 
-    ...props 
+const Input = ({
+    className,
+    asPassword = false,
+    ...props
 }: IInputProps) => {
     const [visible, setVisible] = useState(false);
-    
+
+    const onVisibleChange = () => {
+        setVisible(!visible)
+    }
+
     return (
-        <TextInput
+        <View
             className={cn(
-                "flex h-[60px] w-full rounded-full border border-input bg-background px-4 disabled:opacity-50",
+                "flex-row h-[60px] w-full items-center justify-between rounded-full border border-input bg-background px-4 disabled:opacity-50",
                 "focus:border-primary focus:bg-primary/5",
-                "text-sm placeholder:text-muted-foreground leading-tight",
-                "file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground",
                 className
             )}
-            secureTextEntry={visible}
-            {...props}
         >
-            {children}
-        </TextInput>
+            <TextInput
+                className="flex-1 h-full text-sm placeholder:text-muted-foreground leading-tight"
+                secureTextEntry={asPassword && visible}
+                {...props}
+            />
+            {asPassword && <PasswordVisibleController visible={visible} onVisibleChange={onVisibleChange} />}
+        </View>
     );
 };
 
 export default Input;
+
+
+interface IPasswordVisibleControllerProps {
+    visible: boolean
+    onVisibleChange: () => void;
+}
+
+const PasswordVisibleController = ({ visible, onVisibleChange }: IPasswordVisibleControllerProps) => {
+    return (
+        <Button variant="ghost" onPress={onVisibleChange}>
+            {
+                visible
+                    ? <EyeOffIcon size={20} color="gray" />
+                    : <EyeIcon size={20} color="gray" />
+            }
+        </Button>
+    )
+}
