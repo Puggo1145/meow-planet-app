@@ -13,7 +13,7 @@ import type { ComponentProps } from "react";
 
 
 export interface IInputProps extends ComponentProps<typeof TextInput> {
-    asPassword?: boolean
+    asPassword?: boolean;
 }
 
 const Input = ({
@@ -21,26 +21,39 @@ const Input = ({
     asPassword = false,
     ...props
 }: IInputProps) => {
+    // 密码显示与隐藏
     const [visible, setVisible] = useState(false);
-
-    const onVisibleChange = () => {
-        setVisible(!visible)
-    }
+    const onVisibleChange = () => setVisible(!visible);
+    
+    // 输入框聚焦样式管理
+    const [isFocused, setIsFocused] = useState(false);
+    const handleFocus = () => setIsFocused(true);
+    const handleBlur = () => setIsFocused(false);
 
     return (
         <View
             className={cn(
-                "flex-row h-[60px] w-full items-center justify-between rounded-full border border-input bg-background px-4 disabled:opacity-50",
-                "focus:border-primary focus:bg-primary/5",
+                "flex-row h-[60px] w-full items-center justify-between rounded-full border bg-background px-4 disabled:opacity-50",
+                {
+                    "border-input bg-background": !isFocused,
+                    "border-primary bg-primary/5": isFocused,
+                },
                 className
             )}
         >
             <TextInput
                 className="flex-1 h-full text-sm placeholder:text-muted-foreground leading-tight"
-                secureTextEntry={asPassword && visible}
+                secureTextEntry={asPassword && !visible}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 {...props}
             />
-            {asPassword && <PasswordVisibleController visible={visible} onVisibleChange={onVisibleChange} />}
+            {asPassword && (
+                <PasswordVisibleController
+                    visible={visible}
+                    onVisibleChange={onVisibleChange}
+                />
+            )}
         </View>
     );
 };
