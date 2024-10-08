@@ -14,8 +14,8 @@ const AuthLayout: React.FC = () => {
   const pathname = usePathname();
 
   const authHeaderImageMapper: Record<string, any> = {
-    "/(auth)/sign-in": images.signInHeaderImg,
-    "/(auth)/sign-up": images.signUpHeaderImg,
+    "/sign-in": images.signInHeaderImg,
+    "/sign-up": images.signUpHeaderImg,
   }
 
   const headerImageSource = useMemo(() => {

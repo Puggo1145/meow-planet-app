@@ -2,16 +2,11 @@
 import { View, Text } from "react-native";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
-// components
-import AuthHeaderImage from "../_components/auth-header-image";
 // libs
 import { router } from "expo-router";
-// assets
-import { images } from "@/constants/images";
 
 
 const SignUpPage: React.FC = () => {
-
   return (
     <View className="flex-1 px-6 items-center justify-between">
       <View className="mt-8 gap-y-6">
